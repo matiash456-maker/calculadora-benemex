@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="manifest.json">
   <title>Calculadora de Materiales</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <div class="card">
@@ -14,19 +14,7 @@
     <!-- Selección de Producto -->
     <div class="form-group">
       <label for="producto">Producto:</label>
-      <select id="producto">
-        <option value="1.8">Rollito para vidrio (3m x 60cm)</option>
-        <option value="1.8">Rollo para muebles (3m x 60cm)</option>
-        <option value="2.25">Rollo para mueble (5m x 45cm)</option>
-        <option value="1.8">Rollo símil wall panel (3m x 60cm)</option>
-        <option value="3.6">Rollo grande (3m x 1.20m)</option>
-        <option value="0.18">Placa pequeña (60cm x 30cm)</option>
-        <option value="0.36">Placa grande (60cm x 60cm)</option>
-        <option value="0.539">Placa ladrillo (70cm x 77cm)</option>
-        <option value="0.4225">Placa rosa con flores (65cm x 65cm)</option>
-        <option value="2.0">Césped (2m x 1m)</option>
-        <option value="4.0">Césped otro (2m x 2m)</option>
-      </select>
+      <select id="producto"></select>
     </div>
 
     <!-- Modo de Entrada -->
@@ -71,6 +59,33 @@
       <p id="resM2ConMargen"></p>
       <h3 id="resUnidades"></h3>
     </div>
+
+    <hr class="divider">
+
+    <!-- Sección Administrar Productos -->
+    <details class="admin-section">
+      <summary>⚙️ Cargar / Gestionar Productos</summary>
+      <div class="form-group admin-box">
+        <h4>Agregar Nuevo Producto</h4>
+        <label for="nuevoNombre">Nombre del producto:</label>
+        <input type="text" id="nuevoNombre" placeholder="Ej: Wall Panel XL">
+
+        <div class="grid-2">
+          <div>
+            <label for="nuevoAncho">Ancho (cm o m):</label>
+            <input type="number" id="nuevoAncho" placeholder="Ej: 15 cm o 0.15" step="any">
+          </div>
+          <div>
+            <label for="nuevoLargo">Largo/Alto (m):</label>
+            <input type="number" id="nuevoLargo" placeholder="Ej: 2.90" step="any">
+          </div>
+        </div>
+        <button class="btn-secundario" onclick="agregarProducto()">Guardar Producto</button>
+
+        <h4 style="margin-top: 20px;">Productos Guardados</h4>
+        <ul id="listaProductos" class="product-list"></ul>
+      </div>
+    </details>
   </div>
 
   <script src="app.js"></script>
