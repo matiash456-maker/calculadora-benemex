@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Materiales</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="card">
+    <h2>Calculadora de Materiales</h2>
+
+    <!-- Selección de Producto -->
+    <div class="form-group">
+      <label for="producto">Producto:</label>
+      <select id="producto">
+        <option value="1.8">Rollito para vidrio (3m x 60cm)</option>
+        <option value="1.8">Rollo para muebles (3m x 60cm)</option>
+        <option value="2.25">Rollo para mueble (5m x 45cm)</option>
+        <option value="1.8">Rollo símil wall panel (3m x 60cm)</option>
+        <option value="3.6">Rollo grande (3m x 1.20m)</option>
+        <option value="0.18">Placa pequeña (60cm x 30cm)</option>
+        <option value="0.36">Placa grande (60cm x 60cm)</option>
+        <option value="0.539">Placa ladrillo (70cm x 77cm)</option>
+        <option value="0.4225">Placa rosa con flores (65cm x 65cm)</option>
+        <option value="2.0">Césped (2m x 1m)</option>
+        <option value="4.0">Césped otro (2m x 2m)</option>
+      </select>
+    </div>
+
+    <!-- Modo de Entrada -->
+    <div class="form-group">
+      <label>Modo de ingreso:</label>
+      <div class="tabs">
+        <button id="btnM2" class="tab-btn active" onclick="cambiarModo('m2')">Por m² totales</button>
+        <button id="btnMedidas" class="tab-btn" onclick="cambiarModo('medidas')">Por Medidas (Ancho x Alto)</button>
+      </div>
+    </div>
+
+    <!-- Entradas de datos -->
+    <div id="secM2" class="form-group">
+      <label for="m2Input">Superficie total (m²):</label>
+      <input type="number" id="m2Input" placeholder="Ej: 15" step="any">
+    </div>
+
+    <div id="secMedidas" class="form-group hidden">
+      <div class="grid-2">
+        <div>
+          <label for="anchoInput">Ancho (m):</label>
+          <input type="number" id="anchoInput" placeholder="Ej: 3" step="any">
+        </div>
+        <div>
+          <label for="altoInput">Alto (m):</label>
+          <input type="number" id="altoInput" placeholder="Ej: 5" step="any">
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo Editable de Desperdicio -->
+    <div class="form-group">
+      <label for="desperdicioInput">Margen de desperdicio (%):</label>
+      <input type="number" id="desperdicioInput" value="15" step="any">
+    </div>
+
+    <button class="btn-calcular" onclick="calcular()">Calcular Unidades</button>
+
+    <!-- Resultado -->
+    <div id="resultado" class="result-box hidden">
+      <p id="resM2Nominal"></p>
+      <p id="resM2ConMargen"></p>
+      <h3 id="resUnidades"></h3>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
